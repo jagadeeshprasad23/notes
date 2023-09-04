@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Bootstrap 5 Example</title>
+    <title>Machine Learning Notes</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link
@@ -45,9 +45,11 @@
       <li>Getting insights about complex problems and large amounts of data</li>
       <h4>Types of Machine Learning Systems</h4>
 
-      There are so many different types of machine learning systems that it is
-      useful to classify them in broad categories, based on the following
-      criteria:
+      <p>
+        There are so many different types of machine learning systems that it is
+        useful to classify them in broad categories, based on the following
+        criteria:
+      </p>
       <li>
         How they are supervised during training (supervised, unsupervised,
         semi-supervised, self-supervised, and others)
@@ -67,9 +69,11 @@
 
       <h4>Training Supervision</h4>
 
-      ML systems can be classified according to the amount and type of
-      supervision they get during training. There are many categories, but we'll
-      discuss the main ones:
+      <p>
+        ML systems can be classified according to the amount and type of
+        supervision they get during training. There are many categories, but
+        we'll discuss the main ones:
+      </p>
       <b
         >supervised learning, unsupervised learning, self-supervised learning,
         semi-supervised learning, and reinforcement learning.</b
@@ -172,45 +176,58 @@
       </p>
 
       <h4>Batch Versus Online Learning</h4>
-      Another criterion used to classify machine learning systems is whether or
-      not the system can learn incrementally from a stream of incoming data.
+      <p>
+        Another criterion used to classify machine learning systems is whether
+        or not the system can learn incrementally from a stream of incoming
+        data.
+      </p>
 
       <h5>Batch learning</h5>
-      In batch learning, the system is incapable of learning incrementally: it
-      must be trained using all the available data. This will generally take a
-      lot of time and computing resources, so it is typically done offline.
-      First the system is trained, and then it is launched into production and
-      runs without learning anymore; it just applies what it has learned. This
-      is called offline learning.
+      <p>
+        In batch learning, the system is incapable of learning incrementally: it
+        must be trained using all the available data. This will generally take a
+        lot of time and computing resources, so it is typically done offline.
+        First the system is trained, and then it is launched into production and
+        runs without learning anymore; it just applies what it has learned. This
+        is called offline learning.
+      </p>
 
       <h5>Online learning</h5>
-      In online learning, you train the system incrementally by feeding it data
-      instances sequentially, either individually or in small groups called
-      mini-batches. Each learning step is fast and cheap, so the system can
-      learn about new data on the fly, as it arrives.
+      <p>
+        In online learning, you train the system incrementally by feeding it
+        data instances sequentially, either individually or in small groups
+        called mini-batches. Each learning step is fast and cheap, so the system
+        can learn about new data on the fly, as it arrives.
+      </p>
 
       <h4>Instance-Based Versus Model-Based Learning</h4>
-      One more way to categorize machine learning systems is by how they
-      generalize. Most machine learning tasks are about making predictions. This
-      means that given a number of training examples, the system needs to be
-      able to make good predictions for (generalize to) examples it has never
-      seen before. Having a good performance measure on the training data is
-      good, but insufficient; the true goal is to perform well on new instances.
-      There are two main approaches to generalization: instance-based learning
-      and model-based learning.
+      <p>
+        One more way to categorize machine learning systems is by how they
+        generalize. Most machine learning tasks are about making predictions.
+        This means that given a number of training examples, the system needs to
+        be able to make good predictions for (generalize to) examples it has
+        never seen before. Having a good performance measure on the training
+        data is good, but insufficient; the true goal is to perform well on new
+        instances. There are two main approaches to generalization:
+        instance-based learning and model-based learning.
+      </p>
 
       <h5>Instance-based learning</h5>
 
-      Possibly the most trivial form of learning is simply to learn by heart. If
-      you were to create a spam filter this way, it would just flag all emails
-      that are identical to emails that have already been flagged by users—not
-      the worst solution, but certainly not the best.
+      <p>
+        Possibly the most trivial form of learning is simply to learn by heart.
+        If you were to create a spam filter this way, it would just flag all
+        emails that are identical to emails that have already been flagged by
+        users—not the worst solution, but certainly not the best.
+      </p>
 
       <h4>Model-based learning and a typical machine learning workflow</h4>
 
-      Another way to generalize from a set of examples is to build a model of
-      these examples and then use that model to make predictions. This is called
-      model-based learning.
+      <p>
+        Another way to generalize from a set of examples is to build a model of
+        these examples and then use that model to make predictions. This is
+        called model-based learning.
+      </p>
 
       <li>
         the model to make predictions on new cases, this is called inference
@@ -223,24 +240,100 @@
         data, the two things that can go wrong are “bad model” and “bad data”.
         Let's start with examples of bad data.
       </p>
-      <li>
-        <b>Insufficient Quantity of Training Data:</b> Machine learning is not
+
+      <h6>Insufficient Quantity of Training Data:</h6>
+      Machine learning is not
+      <p>
         quite there yet; it takes a lot of data for most machine learning
         algorithms to work properly. Even for very simple problems you typically
         need thousands of examples, and for complex problems such as image or
         speech recognition you may need millions of examples (unless you can
         reuse parts of an existing model).
+      </p>
+
+      <h6>Nonrepresentative Training Data:</h6>
+      <p>
+        In order to generalize well, it is crucial that your training data be
+        representative of the new cases you want to generalize to. This is true
+        whether you use instance-based learning or model-based learning.
+      </p>
+
+      <h6>Poor-Quality Data:</h6>
+      <p>
+        Obviously, if your training data is full of errors, outliers, and noise
+        (e.g., due to poor-quality measurements), it will make it harder for the
+        system to detect the underlying patterns, so your system is less likely
+        to perform well.
+      </p>
+
+      <h6>Irrelevant Features</h6>
+      <p>
+        As the saying goes: garbage in, garbage out. Your system will only be
+        capable of learning if the training data contains enough relevant
+        features and not too many irrelevant ones. A critical part of the
+        success of a machine learning project is coming up with a good set of
+        features to train on. This process, called feature engineering, involves
+        the following steps:
+      </p>
+      <li>
+        <b>Feature selection</b> (selecting the most useful features to train on
+        among existing features)
       </li>
       <li>
-        <b>Nonrepresentative Training Data:</b> In order to generalize well, it
-        is crucial that your training data be representative of the new cases
-        you want to generalize to. This is true whether you use instance-based
-        learning or model-based learning.
+        <b>Feature extraction</b> (combining existing features to produce a more
+        useful one —as we saw earlier, dimensionality reduction algorithms can
+        help)
       </li>
-      <li><b>Poor-Quality Data:</b>
-        Obviously, if your training data is full of errors, outliers, and noise (e.g.,
-        due to poor-quality measurements), it will make it harder for the system to
-        detect the underlying patterns, so your system is less likely to perform well.</li>
+      <li>Creating new features by gathering new data</li>
+      <br />
+      <h6>Overfitting the Training Data</h6>
+      <p>
+        Say you are visiting a foreign country and the taxi driver rips you off.
+        You might be tempted to say that all taxi drivers in that country are
+        thieves. Overgeneralizing is something that we humans do all too often,
+        and unfortunately machines can fall into the same trap if we are not
+        careful. In machine learning this is called overfitting: it means that
+        the model performs well on the training data, but it does not generalize
+        well.
+      </p>
+
+      <h6>Underfitting the Training Data</h6>
+      <p>
+        As you might guess, underfitting is the opposite of overfitting: it
+        occurs when your model is too simple to learn the underlying structure
+        of the data. For example, a linear model of life satisfaction is prone
+        to underfit; reality is just more complex than the model, so its
+        predictions are bound to be inaccurate, even on the training examples.
+      </p>
+
+      <h4>Testing and Validating</h4>
+      <p>
+        A better option is to split your data into two sets: the training set
+        and the test set. As these names imply, you train your model using the
+        training set, and you test it using the test set. The error rate on new
+        cases is called the generalization error (or out-of-sample error), and
+        by evaluating your model on the test set, you get an estimate of this
+        error. This value tells you how well your model will perform on
+        instances it has never seen before.
+        <br />
+        If the training error is low (i.e., your model makes few mistakes on the
+        training set) but the generalization error is high, it means that your
+        model is overfitting the training data.
+      </p>
+      <p>Hyperparameter Tuning and Model Selection</p>
+    </div>
+    <div class="container mt-5">
+      <h3>Main steps in End-to-End Machine Learning Project</h3>
+      1. Look at the big picture. <br />
+      2. Get the data. <br />
+      3. Explore and visualize the data to gain insights. <br />
+      4. Prepare the data for machine learning algorithms. <br />
+      5. Select a model and train it. <br />
+      6. Fine-tune your model. <br />
+      7. Present your solution. <br />
+      8. Launch, monitor, and maintain your system. <br />
+
+      
     </div>
   </body>
 </html>
